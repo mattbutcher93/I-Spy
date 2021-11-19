@@ -33,19 +33,24 @@ public class ObjectSelector : MonoBehaviour
             // If selecting same object, then deselect
             if (CurrentSelection != null && foundSelection == CurrentSelection)
             {
-                CurrentSelection.OnDeselected.Invoke();
-                CurrentSelection = null;
+                DeselectCurrentObject();
             }
             // Else swap selection
             else
             {
-                CurrentSelection?.OnDeselected.Invoke();
+                DeselectCurrentObject();
                 foundSelection?.OnSelected.Invoke();
                 CurrentSelection = foundSelection;
 
                 LogSelection();
             }
         }
+    }
+
+    public void DeselectCurrentObject()
+    {
+        CurrentSelection?.OnDeselected.Invoke();
+        CurrentSelection = null;
     }
 
     private void LogSelection()

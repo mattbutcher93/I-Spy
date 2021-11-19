@@ -71,6 +71,8 @@ public class ISpyController : MonoBehaviour
             {
                 Debug.Log("Nothing selected!");
             }
+
+            objectSelector.DeselectCurrentObject();
         }
     }
 
