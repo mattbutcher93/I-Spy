@@ -5,4 +5,5 @@
 2. Create new a new Prefab as a Prefab Varient of _SpyObjectBase
 3. Add the SpyObjectData to SpyObject component
 4. Add object's mesh prefab as a child
-5. Add objects mesh to "Highlight" component if needed. 
+5. Add objects mesh to "Highlight" component if needed.
+6. Resize collider
