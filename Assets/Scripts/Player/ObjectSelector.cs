@@ -8,11 +8,15 @@ public class ObjectSelector : MonoBehaviour
     [SerializeField]
     private Transform playerCamera;
 
-    [SerializeField]
-    private Selectable currentSelection;
 
     [SerializeField]
     private float maxDistance = 1.5f;
+
+    public Selectable CurrentSelection
+    {
+        get;
+        private set;
+    }
 
     private void Update()
     {
@@ -27,17 +31,17 @@ public class ObjectSelector : MonoBehaviour
             }
 
             // If selecting same object, then deselect
-            if (currentSelection != null && foundSelection == currentSelection)
+            if (CurrentSelection != null && foundSelection == CurrentSelection)
             {
-                currentSelection.OnDeselected.Invoke();
-                currentSelection = null;
+                CurrentSelection.OnDeselected.Invoke();
+                CurrentSelection = null;
             }
             // Else swap selection
             else
             {
-                currentSelection?.OnDeselected.Invoke();
+                CurrentSelection?.OnDeselected.Invoke();
                 foundSelection?.OnSelected.Invoke();
-                currentSelection = foundSelection;
+                CurrentSelection = foundSelection;
 
                 LogSelection();
             }
@@ -46,9 +50,9 @@ public class ObjectSelector : MonoBehaviour
 
     private void LogSelection()
     {
-        if (currentSelection != null)
+        if (CurrentSelection != null)
         {
-            SpyObject spyObject = currentSelection.GetComponent<SpyObject>();
+            SpyObject spyObject = CurrentSelection.GetComponent<SpyObject>();
             if (spyObject != null)
             {
                 Debug.Log(spyObject.Data.name);
