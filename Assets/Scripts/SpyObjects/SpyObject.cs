@@ -1,31 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class SpyObject : MonoBehaviour
 {
-    public List<string> PossibleNames
+    public SpyObjectData Data
     {
-        get;
-        private set;
+        get { return data; }
     }
-
     [SerializeField]
-    private SpyObjectData spyObjectData;
+    [FormerlySerializedAs("spyObjectData")]
+    private SpyObjectData data;
 
     private void Awake()
     {
-        if (spyObjectData == null)
+        if (data == null)
         {
             Debug.LogWarning(gameObject.name + ": Spy object without data!");
-        }
-        else if (spyObjectData.possibleNames == null || spyObjectData.possibleNames.Length == 0)
-        {
-            Debug.LogWarning(spyObjectData.name + ": Spy object data has no names!");
-        }
-        else
-        {
-            PossibleNames = new List<string>(spyObjectData.possibleNames);
         }
     }
 }

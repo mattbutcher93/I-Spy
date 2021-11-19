@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectSelector : MonoBehaviour
@@ -53,8 +51,7 @@ public class ObjectSelector : MonoBehaviour
             SpyObject spyObject = currentSelection.GetComponent<SpyObject>();
             if (spyObject != null)
             {
-                foreach (string name in spyObject.PossibleNames)
-                    Debug.Log(name);
+                Debug.Log(spyObject.Data.name);
             }
         }
     }
