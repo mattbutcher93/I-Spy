@@ -658,9 +658,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1317459260}
   - component: {fileID: 1317459259}
-  - component: {fileID: 1317459261}
-  - component: {fileID: 1317459262}
-  - component: {fileID: 1317459263}
   m_Layer: 0
   m_Name: Management
   m_TagString: Untagged
@@ -690,61 +687,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.48731124, y: -0.08607459, z: 6.3372116}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1840982678}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1317459261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317459258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c511e92c3c40f409480f16e6a94a44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectSelector: {fileID: 1207634662}
---- !u!114 &1317459262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317459258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96724a065ae9a7f4281058c0cea8ef86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnNoLives:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLifeLost:
-    m_PersistentCalls:
-      m_Calls: []
-  maxLives: 3
---- !u!114 &1317459263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1317459258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdfe507547ad85b46966b26f892d9b4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnRoundStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAllRoundsFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  maxRounds: 5
 --- !u!1001 &1332513900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1176,6 +1123,138 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6907980998151984325, guid: 13420d532142fa84fab77ee4dcd07d1b, type: 3}
   m_PrefabInstance: {fileID: 1332513900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1840982677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1840982678}
+  - component: {fileID: 1840982681}
+  - component: {fileID: 1840982680}
+  - component: {fileID: 1840982679}
+  m_Layer: 0
+  m_Name: ISpyController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1840982678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840982677}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1317459260}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1840982679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840982677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdfe507547ad85b46966b26f892d9b4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnRoundStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1840982681}
+        m_TargetAssemblyTypeName: ISpyController, Assembly-CSharp
+        m_MethodName: RoundStarted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAllRoundsFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1840982681}
+        m_TargetAssemblyTypeName: ISpyController, Assembly-CSharp
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxRounds: 5
+--- !u!114 &1840982680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840982677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96724a065ae9a7f4281058c0cea8ef86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnNoLives:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1840982681}
+        m_TargetAssemblyTypeName: ISpyController, Assembly-CSharp
+        m_MethodName: GameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnLifeLost:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1840982681}
+        m_TargetAssemblyTypeName: ISpyController, Assembly-CSharp
+        m_MethodName: LifeLost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  maxLives: 3
+--- !u!114 &1840982681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840982677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c511e92c3c40f409480f16e6a94a44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectSelector: {fileID: 1207634662}
 --- !u!1001 &1923649571
 PrefabInstance:
   m_ObjectHideFlags: 0
