@@ -43,6 +43,16 @@ public class ObjectSelector : MonoBehaviour
                 currentSelection?.OnDeselected.Invoke();
                 foundSelection?.OnSelected.Invoke();
                 currentSelection = foundSelection;
+
+                if (currentSelection != null)
+                {
+                    SpyObject spyObject = currentSelection.GetComponent<SpyObject>();
+                    if (spyObject != null)
+                    {
+                        foreach (string name in spyObject.PossibleNames)
+                            Debug.Log(name);
+                    }
+                }
             }
         }
     }

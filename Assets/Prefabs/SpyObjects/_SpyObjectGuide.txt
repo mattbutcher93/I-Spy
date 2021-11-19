@@ -1,0 +1,8 @@
+(If this was part of a large project, I would instead create an editor wizard 
+ to handle the creation of new Spy Objects)
+
+1. Create and fill a "SpyObjectData" ScriptableObject
+2. Create new a new Prefab as a Prefab Varient of _SpyObjectBase
+3. Add the SpyObjectData to SpyObject component
+4. Add object's mesh prefab as a child
+5. Add objects mesh to "Highlight" component if needed. 

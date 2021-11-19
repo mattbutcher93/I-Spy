@@ -323,6 +323,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387829613, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
+      propertyPath: names.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 387829613, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
+      propertyPath: names.Array.data[0]
+      value: Table
+      objectReference: {fileID: 0}
+    - target: {fileID: 387829613, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
+      propertyPath: names.Array.data[1]
+      value: Desk
+      objectReference: {fileID: 0}
     - target: {fileID: 1343067788654394799, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
       propertyPath: m_RootOrder
       value: 2
