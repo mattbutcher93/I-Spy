@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 1343067788654394799}
   - component: {fileID: 5152696346490840068}
   - component: {fileID: 6294790532453824864}
+  - component: {fileID: 387829612}
+  - component: {fileID: 387829613}
+  - component: {fileID: 3770080772565670046}
   m_Layer: 7
   m_Name: SpyObjectBase
   m_TagString: Untagged
@@ -62,6 +65,74 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &387829612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524331461533019495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca14d9a840ff1546a2b2e7ee3424cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor: {r: 0, g: 1, b: 0, a: 1}
+  meshRenderer: {fileID: 7558971890376547777}
+--- !u!114 &387829613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524331461533019495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4165b3cd96cea24dafaa7be958604c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3770080772565670046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4524331461533019495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af0a2671ceb9504eabffd2617968002, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 387829612}
+        m_TargetAssemblyTypeName: Highlight, Assembly-CSharp
+        m_MethodName: HighlightObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDeselected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 387829612}
+        m_TargetAssemblyTypeName: Highlight, Assembly-CSharp
+        m_MethodName: UnhighlightObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &7544255255655657519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -126,5 +197,10 @@ PrefabInstance:
 --- !u!4 &7539711135491505589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4780108350852506, guid: 6c11ab60d68e93b41858f4a1c1c7a717, type: 3}
+  m_PrefabInstance: {fileID: 7544255255655657519}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &7558971890376547777 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23723945651088878, guid: 6c11ab60d68e93b41858f4a1c1c7a717, type: 3}
   m_PrefabInstance: {fileID: 7544255255655657519}
   m_PrefabAsset: {fileID: 0}

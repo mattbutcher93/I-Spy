@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Simple FP
+// Simple first-person camera
+// Added to the base player object
+// Assumes the camera is a child of the player object
 public class FPCamera : MonoBehaviour
 {
     [SerializeField]
