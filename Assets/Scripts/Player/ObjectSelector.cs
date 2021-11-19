@@ -13,46 +13,48 @@ public class ObjectSelector : MonoBehaviour
     [SerializeField]
     private Selectable currentSelection;
 
+    [SerializeField]
+    private float maxDistance = 1.5f;
+
     private void Update()
     {
         if (Input.GetButtonUp("Fire1"))
         {
             RaycastHit hit;
-            bool selectionChanged = false;
             Selectable foundSelection = null;
 
-            // Find a selection and check if different from current selection
-            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, 1f, layerMask))
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, maxDistance, layerMask))
             {
                 foundSelection = hit.transform.GetComponent<Selectable>();
-
-                if (foundSelection != currentSelection)
-                {
-                    selectionChanged = true;
-                }
             }
 
-            // If an object cannot be found and there is a selection
-            if (foundSelection == null && currentSelection != null)
+            // If selecting same object, then deselect
+            if (currentSelection != null && foundSelection == currentSelection)
             {
-                selectionChanged = true;
+                currentSelection.OnDeselected.Invoke();
+                currentSelection = null;
             }
-
-            if (selectionChanged)
+            // Else swap selection
+            else
             {
                 currentSelection?.OnDeselected.Invoke();
                 foundSelection?.OnSelected.Invoke();
                 currentSelection = foundSelection;
 
-                if (currentSelection != null)
-                {
-                    SpyObject spyObject = currentSelection.GetComponent<SpyObject>();
-                    if (spyObject != null)
-                    {
-                        foreach (string name in spyObject.PossibleNames)
-                            Debug.Log(name);
-                    }
-                }
+                LogSelection();
+            }
+        }
+    }
+
+    private void LogSelection()
+    {
+        if (currentSelection != null)
+        {
+            SpyObject spyObject = currentSelection.GetComponent<SpyObject>();
+            if (spyObject != null)
+            {
+                foreach (string name in spyObject.PossibleNames)
+                    Debug.Log(name);
             }
         }
     }
