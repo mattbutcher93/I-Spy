@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-[RequireComponent(typeof(Lives))]
-[RequireComponent(typeof(Rounds))]
 public class ISpyController : MonoBehaviour
 {
     [SerializeField]
@@ -24,12 +22,7 @@ public class ISpyController : MonoBehaviour
         iSpy = new ISpy(allSpyObjects);
 
         lives = GetComponent<Lives>();
-        lives.OnNoLives.AddListener(GameOver);
-        lives.OnLifeLost.AddListener(LifeLost);
-
         rounds = GetComponent<Rounds>();
-        rounds.OnAllRoundsFinished.AddListener(GameOver);
-        rounds.OnRoundStarted.AddListener(RoundStarted);
 
         if (objectSelector == null)
         {
@@ -44,32 +37,25 @@ public class ISpyController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && objectSelector.CurrentSelection != null)
         {
-            if (objectSelector.CurrentSelection != null)
+            SpyObjectData selectionData = objectSelector.CurrentSelection.GetComponent<SpyObject>()?.Data;
+            if (selectionData != null)
             {
-                SpyObjectData selectionData = objectSelector.CurrentSelection.GetComponent<SpyObject>()?.Data;
-                if (selectionData != null)
+                if (selectionData == currentRequest)
                 {
-                    if (selectionData == currentRequest)
-                    {
-                        Debug.Log("Correct!");
-                        rounds.NextRound();
-                    }
-                    else
-                    {
-                        Debug.Log("Incorrect!");
-                        lives.LoseALife();
-                    }
+                    Debug.Log("Correct!");
+                    rounds.NextRound();
                 }
                 else
                 {
-                    Debug.Log("Selection data is null!");
+                    Debug.Log("Incorrect!");
+                    lives.LoseALife();
                 }
             }
             else
             {
-                Debug.Log("Nothing selected!");
+                Debug.Log("Selection data is null!");
             }
 
             objectSelector.DeselectCurrentObject();
@@ -83,18 +69,18 @@ public class ISpyController : MonoBehaviour
         Debug.Log("I spy with my little eye, something beginning with: " + currentRequest.name[0]);
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         Debug.Log("Game over!");
     }
 
-    private void RoundStarted()
+    public void RoundStarted()
     {
         Debug.LogFormat("Round {0} started", rounds.RoundNumber);
         MakeRequest();
     }
 
-    private void LifeLost()
+    public void LifeLost()
     {
         Debug.LogFormat("Life lost. {0} lives left", lives.CurrentLives);
     }

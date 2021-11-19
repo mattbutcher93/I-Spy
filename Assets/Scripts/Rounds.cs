@@ -9,10 +9,7 @@ public class Rounds : MonoBehaviour
     [SerializeField]
     private int maxRounds;
 
-    public int RoundNumber
-    {
-        get; private set;
-    }
+    public int RoundNumber { get; private set; }
 
     public void StartRounds()
     {

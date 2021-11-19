@@ -8,7 +8,6 @@ public class SpyObject : MonoBehaviour
         get { return data; }
     }
     [SerializeField]
-    [FormerlySerializedAs("spyObjectData")]
     private SpyObjectData data;
 
     private void Awake()
