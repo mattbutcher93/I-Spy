@@ -1,7 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ObjectSelector : MonoBehaviour
 {
+    public UnityEvent OnObjectSelected;
+    public UnityEvent OnObjectDeselected;
+
     [SerializeField]
     private LayerMask layerMask;
 
@@ -34,10 +38,14 @@ public class ObjectSelector : MonoBehaviour
             else
             {
                 DeselectCurrentObject();
-                foundSelection?.OnSelected.Invoke();
+                if (foundSelection != null)
+                {
+                    OnObjectSelected.Invoke();
+                    foundSelection.OnSelected.Invoke();
+                }
                 CurrentSelection = foundSelection;
-
                 LogSelection();
+
             }
         }
     }
@@ -46,6 +54,7 @@ public class ObjectSelector : MonoBehaviour
     {
         CurrentSelection?.OnDeselected.Invoke();
         CurrentSelection = null;
+        OnObjectDeselected.Invoke();
     }
 
     private void LogSelection()

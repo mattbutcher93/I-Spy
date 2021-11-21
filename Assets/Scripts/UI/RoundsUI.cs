@@ -4,7 +4,7 @@ using TMPro;
 public class RoundsUI : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI textField;
 
     [SerializeField]
     private Rounds rounds;
@@ -17,12 +17,12 @@ public class RoundsUI : MonoBehaviour
 
     private void UpdateRoundStarted()
     {
-        text.text = "Round: " + rounds.RoundNumber;
+        textField.text = "Round: " + rounds.RoundNumber;
     }
 
     private void UpdateRoundsText()
     {
-        text.text = "Round: " + rounds.RoundNumber;
+        textField.text = "Round: " + rounds.RoundNumber;
     }
 
     private void OnDestroy()

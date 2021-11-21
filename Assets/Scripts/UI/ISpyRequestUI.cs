@@ -4,7 +4,7 @@ using TMPro;
 public class ISpyRequestUI : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI textField;
 
     [SerializeField]
     private ISpyController iSpyController;
@@ -16,7 +16,7 @@ public class ISpyRequestUI : MonoBehaviour
 
     private void UpdateSpyRequestText(SpyObjectData spyObjectData)
     {
-        text.text = string.Format("I spy with my little eye, something beginning with: <color=\"orange\">{0}</color>", spyObjectData.name[0]);
+        textField.text = string.Format("I spy with my little eye, something beginning with: <color=\"orange\">{0}</color>", spyObjectData.name[0]);
     }
 
     private void OnDestroy()

@@ -4,7 +4,7 @@ using TMPro;
 public class LivesUI : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI textField;
 
     [SerializeField]
     private Lives lives;
@@ -17,7 +17,7 @@ public class LivesUI : MonoBehaviour
 
     private void UpdateLifeText()
     {
-        text.text = "Lives: " + lives.CurrentLives;
+        textField.text = "Lives: " + lives.CurrentLives;
     }
 
     private void OnDestroy()

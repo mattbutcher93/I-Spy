@@ -20,6 +20,8 @@ public class ISpyController : MonoBehaviour
     private Lives lives;
     private Rounds rounds;
 
+    public KeyCode SubmitGuessKey { get; private set; } = KeyCode.E;
+
     private void Awake()
     {
         List<SpyObjectData> allSpyObjects = GameObject.FindObjectsOfType<SpyObject>().Select(spyObject => spyObject.Data)
@@ -45,7 +47,7 @@ public class ISpyController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && objectSelector.CurrentSelection != null)
+        if (Input.GetKeyDown(SubmitGuessKey) && objectSelector.CurrentSelection != null)
         {
             SpyObjectData selectionData = objectSelector.CurrentSelection.GetComponent<SpyObject>()?.Data;
             if (selectionData != null)

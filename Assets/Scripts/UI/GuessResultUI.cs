@@ -8,7 +8,7 @@ public class GuessResultUI : MonoBehaviour
     private float showTime = 2f;
 
     [SerializeField]
-    private TextMeshProUGUI text;
+    private TextMeshProUGUI textField;
 
     [SerializeField]
     private ISpyController iSpyController;
@@ -33,9 +33,9 @@ public class GuessResultUI : MonoBehaviour
 
     private IEnumerator ShowTextTimed(string showText)
     {
-        text.text = showText;
+        textField.text = showText;
         yield return new WaitForSeconds(showTime);
-        text.text = "";
+        textField.text = "";
         showTextCoroutine = null;
     }
 }
