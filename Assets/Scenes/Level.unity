@@ -1001,6 +1001,7 @@ GameObject:
   - component: {fileID: 1840982681}
   - component: {fileID: 1840982680}
   - component: {fileID: 1840982679}
+  - component: {fileID: 1840982682}
   m_Layer: 0
   m_Name: ISpyController
   m_TagString: Untagged
@@ -1054,7 +1055,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1840982681}
         m_TargetAssemblyTypeName: ISpyController, Assembly-CSharp
-        m_MethodName: GameOver
+        m_MethodName: GameWon
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1086,7 +1087,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1840982681}
         m_TargetAssemblyTypeName: ISpyController, Assembly-CSharp
-        m_MethodName: GameOver
+        m_MethodName: GameLost
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1125,6 +1126,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectSelector: {fileID: 1207634662}
+--- !u!114 &1840982682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840982677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c515ea53fd713324eb72e1d4a262991b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iSpyController: {fileID: 1840982681}
+  lifeLostScoreChange: -30
+  correctGuessScoreChange: 90
 --- !u!1 &1842834773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4769164555429758183, guid: 544ccaa41114e6c459e25c6a9608e019, type: 3}

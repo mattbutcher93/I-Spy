@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -84,9 +86,19 @@ public class ISpyController : MonoBehaviour
         OnISpyRequest(currentRequest);
     }
 
-    public void GameOver()
+    public void GameWon()
     {
-        Debug.Log("Game over!");
+        Debug.Log("Game won!");
+        GameManager.gameWon = true;
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+
+    }
+
+    public void GameLost()
+    {
+        Debug.Log("Game lost!");
+        GameManager.gameWon = false;
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 
     public void RoundStarted()
