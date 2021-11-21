@@ -655,6 +655,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1193986456823251052, guid: bd3bf632002acd847922fcc59a2970fb, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193986456823251052, guid: bd3bf632002acd847922fcc59a2970fb, type: 3}
+      propertyPath: m_StepOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2932351630867237134, guid: bd3bf632002acd847922fcc59a2970fb, type: 3}
       propertyPath: m_RootOrder
       value: 1
