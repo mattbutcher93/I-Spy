@@ -20,14 +20,14 @@ public class GuessResultUI : MonoBehaviour
         iSpyController.OnGuess += GuessResult;
     }
 
-    private void GuessResult(bool isCorrect)
+    private void GuessResult(bool isCorrect, string name)
     {
         if (showTextCoroutine != null)
         {
             StopCoroutine(showTextCoroutine);
         }
 
-        showTextCoroutine = StartCoroutine(ShowTextTimed(isCorrect ? "<color=\"green\">Correct</color>"
+        showTextCoroutine = StartCoroutine(ShowTextTimed(isCorrect ? "<color=\"green\">Correct</color>\n<color=\"white\">" + name + "</color>"
                                                                    : "<color=\"red\">Incorrect</color>"));
     }
 

@@ -8,7 +8,7 @@ using System.Linq;
 public class ISpyController : MonoBehaviour
 {
     public delegate void ISpyRequesetEventHandler(SpyObjectData spyObjectData);
-    public delegate void ISpyGuessEventHandler(bool isCorrect);
+    public delegate void ISpyGuessEventHandler(bool isCorrect, string objectName);
 
     public event ISpyRequesetEventHandler OnISpyRequest = delegate { };
     public event ISpyGuessEventHandler OnGuess = delegate { };
@@ -57,13 +57,13 @@ public class ISpyController : MonoBehaviour
                 if (selectionData == currentRequest)
                 {
                     Debug.Log("Correct!");
-                    OnGuess(true);
+                    OnGuess(true, currentRequest.name);
                     rounds.NextRound();
                 }
                 else
                 {
                     Debug.Log("Incorrect!");
-                    OnGuess(false);
+                    OnGuess(false, null);
                     if (lives != null && lives.enabled)
                     {
                         lives.LoseALife();
@@ -76,6 +76,11 @@ public class ISpyController : MonoBehaviour
             }
 
             objectSelector.DeselectCurrentObject();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !Application.isEditor)
+        {
+            SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
         }
     }
 

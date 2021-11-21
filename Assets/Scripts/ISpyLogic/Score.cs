@@ -19,7 +19,7 @@ public class Score : MonoBehaviour
         }
     }
 
-    private void GuessScoreChange(bool correct)
+    private void GuessScoreChange(bool correct, string name)
     {
         if (correct)
         {
