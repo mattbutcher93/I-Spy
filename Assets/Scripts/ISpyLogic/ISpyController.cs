@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +25,7 @@ public class ISpyController : MonoBehaviour
 
     private void Awake()
     {
+        // Get all unique spy objects
         List<SpyObjectData> allSpyObjects = GameObject.FindObjectsOfType<SpyObject>().Select(spyObject => spyObject.Data)
                                                                                      .Where(data => data != null)
                                                                                      .Distinct()

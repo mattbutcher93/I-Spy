@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+
 public class EnterNameUI : MonoBehaviour
 {
     public event Action<string> OnNameEntered = delegate { };

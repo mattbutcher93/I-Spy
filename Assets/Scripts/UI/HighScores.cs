@@ -57,6 +57,7 @@ public class HighScores : MonoBehaviour
         SaveScores();
     }
 
+    // Scores are stored as a string, the form of <name>,<score> e.g. Matt,100
     private void LoadScore(int i)
     {
         if (PlayerPrefs.HasKey("Score" + i))
