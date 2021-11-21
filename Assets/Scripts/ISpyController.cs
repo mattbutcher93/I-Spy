@@ -16,6 +16,7 @@ public class ISpyController : MonoBehaviour
     private void Awake()
     {
         List<SpyObjectData> allSpyObjects = GameObject.FindObjectsOfType<SpyObject>().Select(spyObject => spyObject.Data)
+                                                                                     .Where(data => data != null)
                                                                                      .Distinct()
                                                                                      .ToList();
 
@@ -32,7 +33,7 @@ public class ISpyController : MonoBehaviour
 
     private void Start()
     {
-        rounds.StartRounds();
+        rounds?.StartRounds();
     }
 
     private void Update()
@@ -45,12 +46,18 @@ public class ISpyController : MonoBehaviour
                 if (selectionData == currentRequest)
                 {
                     Debug.Log("Correct!");
-                    rounds.NextRound();
+                    if (rounds != null && rounds.enabled)
+                    {
+                        rounds.NextRound();
+                    }
                 }
                 else
                 {
                     Debug.Log("Incorrect!");
-                    lives.LoseALife();
+                    if (lives != null && lives.enabled)
+                    {
+                        lives.LoseALife();
+                    }
                 }
             }
             else

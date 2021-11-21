@@ -74,6 +74,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4872705443988488030}
     - target: {fileID: 387829613, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: d7c884a763a36084e83259646f9c3c3e, type: 2}
+    - target: {fileID: 387829613, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
       propertyPath: spyObjectData
       value: 
       objectReference: {fileID: 11400000, guid: d7c884a763a36084e83259646f9c3c3e, type: 2}
@@ -123,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4524331461533019495, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
       propertyPath: m_Name
-      value: Cog
+      value: Gear
       objectReference: {fileID: 0}
     - target: {fileID: 5152696346490840068, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
       propertyPath: m_Size.x

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c36a87fa7c5a28d42908bc0703045d57, type: 3}
-  m_Name: Cup
+  m_Name: Mug
   m_EditorClassIdentifier: 
   possibleNames:
   - Cup
