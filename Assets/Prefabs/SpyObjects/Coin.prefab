@@ -12,6 +12,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8311324399475804814}
     - target: {fileID: 387829613, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 99bf916a221a9034a9ab2d09b8ff2b1e, type: 2}
+    - target: {fileID: 387829613, guid: ffa13cb9b7700bf4985264d30932ce30, type: 3}
       propertyPath: spyObjectData
       value: 
       objectReference: {fileID: 11400000, guid: 99bf916a221a9034a9ab2d09b8ff2b1e, type: 2}
