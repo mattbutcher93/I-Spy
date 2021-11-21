@@ -1,31 +1,49 @@
 using System.Collections.Generic;
 using System;
+using UnityEngine;
 
 public class ISpy
 {
     private List<SpyObjectData> allSpyObjects;
 
     private List<SpyObjectData> currentSpyObjectPool;
-    private Random random;
+    private System.Random random;
 
     public ISpy(List<SpyObjectData> spyObjects)
     {
-        allSpyObjects = new List<SpyObjectData>(spyObjects);
-        currentSpyObjectPool = new List<SpyObjectData>(spyObjects);
-        random = new Random();
+        if (spyObjects == null || spyObjects.Count == 0)
+        {
+            Debug.Log("Initialised with no spy objects!");
+        }
+        else
+        {
+            allSpyObjects = new List<SpyObjectData>(spyObjects);
+            currentSpyObjectPool = new List<SpyObjectData>(spyObjects);
+        }
+
+        random = new System.Random();
     }
 
     // Select a random object and remove it from the pool
-    // Returns null if no objects left
+    // Returns null if no spy objects available
+    // Reset the pool if no spy objects left
     public SpyObjectData SpyRequest()
     {
+        if (allSpyObjects == null || allSpyObjects.Count == 0)
+        {
+            return null;
+        }
+
         SpyObjectData randomObject = null;
 
-        if (currentSpyObjectPool.Count > 0)
+        if (currentSpyObjectPool.Count == 0)
         {
-            randomObject = currentSpyObjectPool[random.Next(currentSpyObjectPool.Count)];
-            currentSpyObjectPool.Remove(randomObject);
+            Reset();
         }
+
+        randomObject = currentSpyObjectPool[random.Next(currentSpyObjectPool.Count)];
+        currentSpyObjectPool.Remove(randomObject);
+
         return randomObject;
     }
 

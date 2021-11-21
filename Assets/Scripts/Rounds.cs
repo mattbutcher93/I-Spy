@@ -11,6 +11,8 @@ public class Rounds : MonoBehaviour
 
     public int RoundNumber { get; private set; }
 
+    public bool unlimitedRounds;
+
     public void StartRounds()
     {
         RoundNumber = 1;
@@ -20,7 +22,7 @@ public class Rounds : MonoBehaviour
     //Returns the current roundNumber
     public int NextRound()
     {
-        if (RoundNumber < maxRounds)
+        if (RoundNumber < maxRounds || unlimitedRounds)
         {
             RoundNumber++;
             OnRoundStarted.Invoke();
