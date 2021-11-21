@@ -21,6 +21,8 @@ public class ISpy
         }
 
         random = new System.Random();
+
+        foreach (SpyObjectData data in allSpyObjects) Debug.Log(data.name);
     }
 
     // Select a random object and remove it from the pool
