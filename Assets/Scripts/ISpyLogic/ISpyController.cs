@@ -2,8 +2,15 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
+[RequireComponent(typeof(Rounds))]
 public class ISpyController : MonoBehaviour
 {
+    public delegate void ISpyRequesetEventHandler(SpyObjectData spyObjectData);
+    public delegate void ISpyGuessEventHandler(bool isCorrect);
+
+    public event ISpyRequesetEventHandler OnISpyRequest = delegate { };
+    public event ISpyGuessEventHandler OnGuess = delegate { };
+
     [SerializeField]
     private ObjectSelector objectSelector;
 
@@ -33,7 +40,7 @@ public class ISpyController : MonoBehaviour
 
     private void Start()
     {
-        rounds?.StartRounds();
+        rounds.StartRounds();
     }
 
     private void Update()
@@ -46,14 +53,13 @@ public class ISpyController : MonoBehaviour
                 if (selectionData == currentRequest)
                 {
                     Debug.Log("Correct!");
-                    if (rounds != null && rounds.enabled)
-                    {
-                        rounds.NextRound();
-                    }
+                    OnGuess(true);
+                    rounds.NextRound();
                 }
                 else
                 {
                     Debug.Log("Incorrect!");
+                    OnGuess(false);
                     if (lives != null && lives.enabled)
                     {
                         lives.LoseALife();
@@ -73,7 +79,7 @@ public class ISpyController : MonoBehaviour
     {
         currentRequest = iSpy.SpyRequest();
         Debug.Log(currentRequest.name + " requested");
-        Debug.Log("I spy with my little eye, something beginning with: " + currentRequest.name[0]);
+        OnISpyRequest(currentRequest);
     }
 
     public void GameOver()

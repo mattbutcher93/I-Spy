@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Lives : MonoBehaviour
 {
+    public UnityEvent OnLivesSet;
     public UnityEvent OnNoLives;
     public UnityEvent OnLifeLost;
 
@@ -16,6 +15,7 @@ public class Lives : MonoBehaviour
     private void Start()
     {
         CurrentLives = maxLives;
+        OnLivesSet.Invoke();
     }
 
     //Lose a life and return current lives
